@@ -1,19 +1,32 @@
 {
-  "posts": [
+  "movies": [
     {
-      "id": 1,
-      "title": "json-server",
-      "author": "typicode"
-    }
-  ],
-  "comments": [
+      "description": "asdasd",
+      "releasedYear": 54045,
+      "rating": 584,
+      "title": "asdasd",
+      "id": 2
+    },
     {
-      "id": 1,
-      "body": "some comment",
-      "postId": 1
+      "description": "Corporis ut veritati",
+      "releasedYear": 2015,
+      "rating": 62,
+      "title": "Veniam maiores quo ",
+      "id": 3
+    },
+    {
+      "description": "Sit deleniti perfer",
+      "releasedYear": 1981,
+      "rating": 45,
+      "title": "Qui officiis consequ",
+      "id": 6
+    },
+    {
+      "description": "Est provident quis ",
+      "releasedYear": 1970,
+      "rating": 92,
+      "title": "Fugiat sapiente min",
+      "id": 7
     }
-  ],
-  "profile": {
-    "name": "typicode"
-  }
+  ]
 }

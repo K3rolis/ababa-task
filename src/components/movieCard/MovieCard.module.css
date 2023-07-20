@@ -1,0 +1,58 @@
+.card {
+  display: flex;
+  background-color: aliceblue;
+  justify-content: space-between;
+  gap: 20px;
+  border-radius: 8px;
+}
+
+.cardContent {
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
+}
+
+.imageBox {
+  height: 150px;
+}
+
+.image {
+  height: 100%;
+  object-fit: cover;
+  width: auto;
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
+  background-color: gray;
+}
+.title {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--primary-text-color);
+}
+
+.metaData {
+  display: flex;
+  gap: 20px;
+  font-weight: 500;
+  color: var(--secondary-text-color);
+}
+
+.ratingBox {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.star {
+  color: rgb(255, 174, 0);
+}
+
+.description {
+  line-height: 20px;
+}
+
+.actions {
+  display: flex;
+  align-self: center;
+  gap: 10px;
+}

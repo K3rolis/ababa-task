@@ -1,0 +1,7 @@
+.formGroup {
+  display: flex;
+  gap: 10px;
+}
+.formGroup > * {
+  width: 50%;
+}
