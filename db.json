@@ -61,6 +61,12 @@
       "email": "admin@example.org",
       "password": "asd",
       "id": 3
+    },
+    {
+      "username": "asdasd",
+      "email": "admin@example.org",
+      "password": "asd",
+      "id": 4
     }
   ]
 }

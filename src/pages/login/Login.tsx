@@ -1,10 +1,13 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import LoginForm from '../../components/forms/login/LoginForm';
 import { LoginProps } from '../../props/UserProps';
 import { useQuery } from '@tanstack/react-query';
 import { getUsers } from '../../api/user';
+import { LoginContext } from '../../contexts/LoginContext';
 
 const Login = () => {
+  const { auth, setAuth } = useContext(LoginContext);
+
   const { isLoading, data: users } = useQuery({
     queryKey: ['users'],
     queryFn: getUsers,
@@ -18,6 +21,11 @@ const Login = () => {
     );
 
     if (getUser) {
+      setAuth({
+        username: loggedUser.username,
+        isLoggedIn: true,
+      });
+
       console.log(getUser);
     } else {
       console.log('nera');
