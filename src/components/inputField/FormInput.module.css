@@ -2,16 +2,42 @@
   display: flex;
   justify-content: center;
   flex-direction: column;
+  position: relative;
+
+  border: 2px solid var(--secondary-text-color);
+  border-radius: 4px;
+  margin-block: 15px;
 }
 
 label {
   text-transform: capitalize;
 }
 
+.label {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 15px;
+  background-color: whitesmoke;
+  transition: 0.2s;
+}
+
 .input {
-  padding: 10px;
+  padding-block: 15px;
   border: 1px solid transparent;
-  background-color: rgb(0, 255, 179);
-  border-radius: 10px;
+  background-color: whitesmoke;
+  border-radius: 2px;
   resize: none;
+  padding-left: 15px;
+  font-size: 16px;
+}
+
+.input:focus {
+  outline: 2px solid var(--primary-text-color);
+}
+
+.input:focus ~ .label,
+.input:valid ~ .label {
+  top: -4px;
+  transition: 0.2s;
 }

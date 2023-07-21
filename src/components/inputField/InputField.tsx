@@ -14,12 +14,12 @@ interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
 const InputField: React.FC<InputProps> = ({ label, register, required, rows, type, name }) => {
   return (
     <div className={styles.inputGroup}>
-      <label className={styles.label}> {label}</label>
       {rows ? (
-        <textarea className={styles.input} {...register(name, { required })} rows={rows}></textarea>
+        <textarea className={styles.input} {...register(name, { required })} rows={rows} required></textarea>
       ) : (
-        <input type={type} className={styles.input} {...register(name, { required })} />
+        <input type={type} className={styles.input} {...register(name, { required })} required />
       )}
+      <label className={styles.label}> {label}</label>
     </div>
   );
 };

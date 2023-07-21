@@ -13,8 +13,8 @@ function App() {
 
   return (
     <div className="App">
-      {auth.isLoggedIn === false ? <Navigate to="/login" /> : <Navigation />}
-      {/* <Navigation /> */}
+      {/* {!auth.isLoggedIn && <Navigate to="/login" />} */}
+      <Navigation />
       <Routes>
         <Route path="/" element={<MoviesList />} />
         <Route path="/movies/create" element={<MovieCreate />} />

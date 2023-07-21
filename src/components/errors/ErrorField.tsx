@@ -5,7 +5,7 @@ type Props = {
 };
 
 const ErrorField = ({ children }: Props) => {
-  return <span style={{ color: 'red' }}>{children}</span>;
+  return <span style={{ color: 'red', margin: '0' }}>{children}</span>;
 };
 
 export default ErrorField;

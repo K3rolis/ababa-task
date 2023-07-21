@@ -1,12 +1,16 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import LoginForm from '../../components/forms/login/LoginForm';
 import { LoginProps } from '../../props/UserProps';
 import { useQuery } from '@tanstack/react-query';
 import { getUsers } from '../../api/user';
 import { LoginContext } from '../../contexts/LoginContext';
+import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
-  const { auth, setAuth } = useContext(LoginContext);
+  const { setAuth } = useContext(LoginContext);
+  const navigate = useNavigate();
+
+  const [error, setError] = useState<string>('');
 
   const { isLoading, data: users } = useQuery({
     queryKey: ['users'],
@@ -26,12 +30,12 @@ const Login = () => {
         isLoggedIn: true,
       });
 
-      console.log(getUser);
+      navigate('/');
     } else {
-      console.log('nera');
+      setError('Wrong username or password');
     }
   };
-  return <LoginForm onSubmit={handleLogin}></LoginForm>;
+  return <LoginForm onSubmit={handleLogin} error={error}></LoginForm>;
 };
 
 export default Login;

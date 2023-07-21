@@ -1,0 +1,23 @@
+.background {
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 25px -5px, rgba(0, 0, 0, 0.04) 0px 10px 10px -5px;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  /* background-color: red; */
+  padding: 20px 10px;
+  font-size: 24px;
+}
+
+.navbarGap {
+  display: flex;
+  column-gap: 30px;
+  flex-wrap: wrap;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}

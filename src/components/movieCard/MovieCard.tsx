@@ -28,12 +28,12 @@ const MovieCard = ({ handleDelete, props }: Props) => {
         </div>
       </div>
       <div className={styles.actions}>
-        <Link to={`/movies/edit/${props.id}`}>
-          <AiFillEdit size={20} />
+        <Link to={`/movies/edit/${props.id}`} title="Edit">
+          <AiFillEdit className={styles.icon} />
         </Link>
 
-        <button onClick={() => handleDelete(props.id!)}>
-          <AiFillDelete size={20} />
+        <button onClick={() => handleDelete(props.id!)} title="Delete">
+          <AiFillDelete className={styles.icon} />
         </button>
       </div>
     </div>

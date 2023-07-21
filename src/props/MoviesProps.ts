@@ -4,4 +4,5 @@ export type MovieProps = {
   title: string;
   releasedYear: number;
   description: string;
+  imageUrl: string;
 };
