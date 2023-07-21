@@ -1,5 +1,5 @@
 import React from 'react';
-import MovieForm from '../../components/forms/movieForm/MovieForm';
+import MovieForm from '../../components/forms/movie/MovieForm';
 import { useMutation } from '@tanstack/react-query';
 import { createMovie } from '../../api/movies';
 import { MovieProps } from '../../props/MoviesProps';

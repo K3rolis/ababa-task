@@ -4,6 +4,8 @@ import { Routes, Route } from 'react-router-dom';
 import Navigation from './components/header/Navigation';
 import MovieCreate from './pages/movies/MovieCreate';
 import MovieEdit from './pages/movies/MovieEdit';
+import Login from './pages/login/Login';
+import Register from './pages/register/Register';
 
 function App() {
   return (
@@ -13,6 +15,9 @@ function App() {
         <Route path="/" element={<MoviesList />} />
         <Route path="/movies/create" element={<MovieCreate />} />
         <Route path="/movies/edit/:movieId" element={<MovieEdit />} />
+
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
       </Routes>
     </div>
   );

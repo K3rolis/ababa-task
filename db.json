@@ -1,10 +1,10 @@
 {
   "movies": [
     {
-      "description": "asdasd",
+      "description": "asdasdaaaaaaaaaaasdaaaaaaaaaaaaaaaaaaaaa",
       "releasedYear": 54045,
       "rating": 584,
-      "title": "asdasd",
+      "title": "asd",
       "id": 2
     },
     {
@@ -27,6 +27,40 @@
       "rating": 92,
       "title": "Fugiat sapiente min",
       "id": 7
+    },
+    {
+      "description": "Dolore quos similiqu",
+      "releasedYear": 1975,
+      "rating": 50,
+      "title": "Quia itaque voluptat",
+      "id": 8
+    },
+    {
+      "description": "Et rerum excepteur e",
+      "releasedYear": 1975,
+      "rating": 7,
+      "title": "Quos vero libero sit",
+      "id": 9
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "username": "labas",
+      "email:": "labas@go.lt",
+      "password": "asd"
+    },
+    {
+      "username": "dujudube",
+      "email": "gawalyf@mailinator.com",
+      "password": "Pa$$w0rd!",
+      "id": 2
+    },
+    {
+      "username": "asd",
+      "email": "admin@example.org",
+      "password": "asd",
+      "id": 3
     }
   ]
 }

@@ -1,5 +1,5 @@
 import React, { InputHTMLAttributes } from 'react';
-import { Path, UseFormRegister } from 'react-hook-form';
+import { Path, UseFormRegister, UseFormUnregister } from 'react-hook-form';
 import styles from './FormInput.module.css';
 
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
@@ -8,7 +8,7 @@ interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   register: UseFormRegister<any>;
   required: boolean;
   rows?: number;
-  type?: 'number' | 'text';
+  type?: 'number' | 'text' | 'password' | 'email';
 }
 
 const InputField: React.FC<InputProps> = ({ label, register, required, rows, type, name }) => {

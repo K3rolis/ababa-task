@@ -8,26 +8,12 @@ import { MovieProps } from '../../../props/MoviesProps';
 import { movieSchema } from '../../../validations/MovieSchema';
 import { useForm, SubmitHandler } from 'react-hook-form';
 
-interface IFormValues {
-  id: number;
-  rating: number;
-  title: string;
-  releasedYear: number;
-  description: string;
-}
-
 type Props = {
   onSubmit: (movie: MovieProps) => void;
-  initialValues: any;
+  initialValues: MovieProps;
 };
 
 const MovieForm = ({ onSubmit, initialValues }: Props) => {
-  // const initialValues = {
-  //   title: '',
-  //   rating: undefined,
-  //   releasedYear: undefined,
-  //   description: '',
-  // };
   const form = useForm<MovieProps>({
     defaultValues: initialValues,
     resolver: yupResolver(movieSchema),
@@ -40,13 +26,9 @@ const MovieForm = ({ onSubmit, initialValues }: Props) => {
   } = form;
 
   const onCreateMovie: SubmitHandler<MovieProps> = async (movie: MovieProps) => {
-    // alert(JSON.stringify(movie));
-    console.log(movie);
     const isValid = await movieSchema.isValid(movie);
-    console.log(isValid);
     if (isValid) {
       onSubmit(movie);
-      console.log('good');
     }
   };
 
