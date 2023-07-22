@@ -1,4 +1,4 @@
-# Getting Started 
+# Installation
 
 ## Using Git Bash (or just download code)
 ```
