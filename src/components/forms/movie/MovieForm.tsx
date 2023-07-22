@@ -47,7 +47,7 @@ const MovieForm = ({ onSubmit, initialValues }: Props) => {
 
         <div className={styles.formGroup}>
           <div>
-            <InputField type="number" label="rating" name="rating" register={register} required />
+            <InputField type="text" label="rating" name="rating" register={register} required />
             {errors.rating && <ErrorField>{errors.rating?.message}</ErrorField>}
           </div>
 

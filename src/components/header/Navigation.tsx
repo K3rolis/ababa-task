@@ -20,6 +20,7 @@ const Navigation = () => {
       username: '',
       isLoggedIn: false,
     });
+    navigate('/');
   };
 
   const handleSubmit = (e: { preventDefault: () => void }) => {
