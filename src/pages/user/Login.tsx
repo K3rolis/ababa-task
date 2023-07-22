@@ -5,6 +5,7 @@ import { useQuery } from '@tanstack/react-query';
 import { getUsers } from '../../api/user';
 import { LoginContext } from '../../contexts/LoginContext';
 import { useNavigate } from 'react-router-dom';
+import { FadeLoader } from 'react-spinners';
 
 const Login = () => {
   const { setAuth } = useContext(LoginContext);
@@ -17,7 +18,7 @@ const Login = () => {
     queryFn: getUsers,
   });
 
-  if (isLoading) return <h1>Loading...</h1>;
+  if (isLoading) return <FadeLoader className="spinner" color="#36d7b7" />;
 
   const handleLogin = (loggedUser: LoginProps) => {
     const getUser = users.find(
@@ -35,7 +36,8 @@ const Login = () => {
       setError('Wrong username or password');
     }
   };
-  return <LoginForm onSubmit={handleLogin} error={error}></LoginForm>;
+
+  return <LoginForm onSubmit={handleLogin} error={error} />;
 };
 
 export default Login;

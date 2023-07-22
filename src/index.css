@@ -24,3 +24,8 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
+
+.spinner {
+  margin: auto;
+  z-index: 10;
+}

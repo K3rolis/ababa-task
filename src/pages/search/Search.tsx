@@ -8,12 +8,12 @@ import { MovieProps } from '../../props/MoviesProps';
 import MovieCard from '../../components/movieCard/MovieCard';
 import Container from '../../components/container/Container';
 import Title from '../../components/title/Title';
+import { FadeLoader } from 'react-spinners';
 
 const Search = () => {
   const { search } = useParams();
   const navigate = useNavigate();
 
-  console.log(search);
   if (!search) {
     navigate('/');
   }
@@ -23,19 +23,13 @@ const Search = () => {
     queryFn: () => getSearchedMovies(String(search)),
   });
 
-  const lala = () => {};
-
-  if (isLoading) return <h1>Loading...</h1>;
+  if (isLoading) return <FadeLoader className="spinner" color="#36d7b7" />;
 
   return (
     <Container width="800px">
       <Title> Search results by: {search}</Title>
       <div className={styles.moviesWrapper}>
-        {movies.length ? (
-          movies.map((movie: MovieProps) => <MovieCard key={movie.id} props={{ ...movie }} handleDelete={lala} />)
-        ) : (
-          <div> Results not found</div>
-        )}
+        {movies.length ? movies.map((movie: MovieProps) => <MovieCard key={movie.id} props={{ ...movie }} />) : <div> Results not found</div>}
       </div>
     </Container>
   );

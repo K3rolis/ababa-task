@@ -12,6 +12,7 @@ import { AiOutlineArrowDown, AiOutlineArrowUp } from 'react-icons/ai';
 import { Link, useNavigate } from 'react-router-dom';
 import { LoginContext } from '../../contexts/LoginContext';
 import { toast } from 'react-toastify';
+import { FadeLoader } from 'react-spinners';
 
 const MoviesList = () => {
   const [moviesDesc, setMoviesDesc] = useState<boolean>(false);
@@ -47,7 +48,7 @@ const MoviesList = () => {
     }
   };
 
-  if (isLoading) return <h1>Loading...</h1>;
+  if (isLoading) return <FadeLoader className="spinner" color="#36d7b7" />;
 
   const moviesSorted = movies.toReversed();
 
