@@ -2,18 +2,18 @@
 
 ## Using Git Bash (or just download code)
 ```
-$ git clone https://github.com/K3rolis/ababa-task.git
+git clone https://github.com/K3rolis/ababa-task.git
 ```
 Open code, terminal and write these commands: 
 
 ```
-$ npm i
+npm i
 ```
 
 ```
-$ json-server --watch db.json
+json-server --watch db.json
 ```
 
 ```
-$ npm start
+npm start
 ```
