@@ -1,14 +1,20 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import RegisterForm from '../../components/forms/register/RegisterForm';
 import { UserRegisterProps } from '../../props/UserProps';
 import { createUser } from '../../api/user';
 import { useMutation } from '@tanstack/react-query';
+import { toast } from 'react-toastify';
+import { useNavigate } from 'react-router-dom';
+import { LoginContext } from '../../contexts/LoginContext';
 
 const Register = () => {
+  const { setAuth } = useContext(LoginContext);
+  const navigate = useNavigate();
   const createUserMutation = useMutation({
     mutationFn: createUser,
     onSuccess: () => {
-      console.log('good');
+      toast.success('User created successfully');
+      navigate('/');
     },
   });
 
@@ -18,6 +24,11 @@ const Register = () => {
       email: user.email,
       password: user.password,
     };
+
+    setAuth({
+      username: user.username,
+      isLoggedIn: true,
+    });
     createUserMutation.mutate(UserData);
   };
 

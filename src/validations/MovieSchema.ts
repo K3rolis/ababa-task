@@ -9,7 +9,7 @@ export const movieSchema = yup.object().shape({
     .typeError('You must specify a number')
     .required('This field is required')
     .min(0, 'Must be greater than or equal to 0')
-    .max(5, 'Must be less than or equal to 5'),
+    .max(10, 'Must be less than or equal to 10'),
   releasedYear: yup
     .number()
     .required('This field is required')

@@ -1,19 +1,22 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import styles from './MovieCard.module.css';
 import { MovieProps } from '../../props/MoviesProps';
 import { Link } from 'react-router-dom';
 import { AiFillDelete, AiFillEdit, AiFillStar } from 'react-icons/ai';
+import { LoginContext } from '../../contexts/LoginContext';
 
 type Props = {
   props: MovieProps;
   handleDelete?: (id: number) => void;
 };
 const MovieCard = ({ handleDelete, props }: Props) => {
+  const { auth } = useContext(LoginContext);
+
   return (
     <div className={styles.card}>
       <div className={styles.cardContent}>
         <div className={styles.imageBox}>
-          <img className={styles.image} src="https://image.tmdb.org/t/p/w300/gPbM0MK8CP8A174rmUwGsADNYKD.jpg" alt="" />
+          <img className={styles.image} src={props.imageUrl} alt={props.title} />
         </div>
         <div className={styles.movieContent}>
           <span className={styles.title}>{props.title}</span>
@@ -27,15 +30,17 @@ const MovieCard = ({ handleDelete, props }: Props) => {
           <p className={styles.description}>{props.description}</p>
         </div>
       </div>
-      <div className={styles.actions}>
-        <Link to={`/movies/edit/${props.id}`} title="Edit">
-          <AiFillEdit className={styles.icon} />
-        </Link>
+      {auth.isLoggedIn && (
+        <div className={styles.actions}>
+          <Link to={`/movies/edit/${props.id}`} title="Edit">
+            <AiFillEdit className={styles.icon} />
+          </Link>
 
-        <button onClick={() => handleDelete!(props.id!)} title="Delete">
-          <AiFillDelete className={styles.icon} />
-        </button>
-      </div>
+          <button onClick={() => handleDelete!(props.id!)} title="Delete">
+            <AiFillDelete className={styles.icon} />
+          </button>
+        </div>
+      )}
     </div>
   );
 };

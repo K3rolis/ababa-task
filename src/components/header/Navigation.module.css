@@ -47,7 +47,7 @@ a {
 }
 
 .searchButton {
-  width: 25px;
+  width: 35px;
   background-color: var(--primary-decoration-color);
   border: 1px solid black;
   margin-left: -1px;

@@ -1,78 +1,52 @@
 {
   "movies": [
     {
-      "imageUrl": "Ad velit exercitati",
-      "description": "Laboris fugit qui i",
-      "releasedYear": 1998,
-      "rating": 22,
-      "title": "In et similique fugi",
+      "imageUrl": "https://image.tmdb.org/t/p/w300/gqY0ITBgT7A82poL9jv851qdnIb.jpg",
+      "description": "Dominic Toretto is a Los Angeles street racer suspected of masterminding a series of big-rig hijackings. When undercover cop Brian O'Conner infiltrates Toretto's iconoclastic crew, he falls for Toretto's sister and must choose a side: the gang or the LAPD.",
+      "releasedYear": 2001,
+      "rating": 7.0,
+      "title": "The Fast and the Furious",
       "id": 1
     },
     {
-      "imageUrl": "Voluptatem omnis aut",
-      "description": "Aliqua Vitae ipsum ",
-      "releasedYear": 1980,
-      "rating": 92,
-      "title": "Assumenda aspernatur",
+      "imageUrl": "https://image.tmdb.org/t/p/w300/bNo2mcvSwIvnx8K6y1euAc1TLVq.jpg",
+      "description": "John Garrity, his estranged wife and their young son embark on a perilous journey to find sanctuary as a planet-killing comet hurtles toward Earth. Amid terrifying accounts of cities getting levelled, the Garritys experience the best and worst in humanity. As the countdown to the global apocalypse approaches zero, their incredible trek culminates in a desperate and last-minute flight to a possible safe haven.",
+      "releasedYear": 2020,
+      "rating": 7.1,
+      "title": "Greenland",
       "id": 2
     },
     {
-      "imageUrl": "Voluptas officia exe",
-      "description": "Omnis officiis tempo",
-      "releasedYear": 1994,
-      "rating": 5,
-      "title": "Sint minim deleniti ",
+      "imageUrl": "https://image.tmdb.org/t/p/w300/uwAlznw4yrBHbT3fPfTbSRy9UfG.jpg",
+      "description": "Teenagers at a juvenile detention center, under the leadership of their counselor, gain self-esteem by playing football together.",
+      "releasedYear": 2006,
+      "rating": 7.0,
+      "title": "Gridiron Gang",
       "id": 3
     },
     {
-      "imageUrl": "Iure qui sunt aut su",
-      "description": "Aliquip voluptatem e",
-      "releasedYear": 1986,
-      "rating": 1,
-      "title": "aSequi mollitia paria",
+      "imageUrl": "https://image.tmdb.org/t/p/w300/t6HIqrRAclMCA60NsSmeqe9RmNV.jpg",
+      "description": "Set more than a decade after the events of the first film, learn the story of the Sully family (Jake, Neytiri, and their kids), the trouble that follows them, the lengths they go to keep each other safe, the battles they fight to stay alive, and the tragedies they endure.",
+      "releasedYear": 2022,
+      "rating": 7.7,
+      "title": "Avatar: The Way of Water",
       "id": 4
     },
     {
-      "imageUrl": "Sit rerum aliquid si",
-      "description": "Sint praesentium la",
-      "releasedYear": 2016,
-      "rating": 1,
-      "title": "Fugiat doloribus ea",
+      "imageUrl": "https://image.tmdb.org/t/p/w300/kuf6dutpsT0vSVehic3EZIqkOBt.jpg",
+      "description": "Puss in Boots discovers that his passion for adventure has taken its toll: He has burned through eight of his nine lives, leaving him with only one life left. Puss sets out on an epic journey to find the mythical Last Wish and restore his nine lives.",
+      "releasedYear": 2022,
+      "rating": 8.3,
+      "title": "Puss in Boots: The Last Wish",
       "id": 5
-    },
-    {
-      "imageUrl": "Sit rerum aliquid si",
-      "description": "Sint praesentium la",
-      "releasedYear": 2016,
-      "rating": 1,
-      "title": "Fugiat doloribus ea",
-      "id": 6
     }
   ],
   "users": [
     {
       "id": 1,
-      "username": "labas",
+      "username": "asd",
       "email:": "labas@go.lt",
       "password": "asd"
-    },
-    {
-      "username": "dujudube",
-      "email": "gawalyf@mailinator.com",
-      "password": "Pa$$w0rd!",
-      "id": 2
-    },
-    {
-      "username": "asd",
-      "email": "admin@example.org",
-      "password": "asd",
-      "id": 3
-    },
-    {
-      "username": "asdasd",
-      "email": "admin@example.org",
-      "password": "asd",
-      "id": 4
     }
   ]
 }

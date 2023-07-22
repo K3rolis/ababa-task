@@ -3,10 +3,12 @@ import MovieForm from '../../components/forms/movie/MovieForm';
 import { useMutation, useQuery } from '@tanstack/react-query';
 import { getMovie, updateMovie } from '../../api/movies';
 import { MovieProps } from '../../props/MoviesProps';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 const MovieEdit = () => {
   const { movieId } = useParams();
+  const navigate = useNavigate();
 
   const { isLoading, data: movie } = useQuery({
     queryKey: ['recipe', Number(movieId)],
@@ -15,12 +17,14 @@ const MovieEdit = () => {
 
   const updateMovieMutation = useMutation({
     mutationFn: updateMovie,
-    onSuccess: (data) => {
-      console.log('successfully edited');
-      //   toast.success('Recipe was created Successfully!');
-      //   navigate(`/recipes/category/${data.data.categoryId}/recipe/${Number(recipeId)}`);
+    onSuccess: () => {
+      toast.success('Movie was edited Successfully!');
+      navigate('/');
     },
-    // onError: () => navigate(`/notFound`),
+    onError: () => {
+      toast.error('Something Went Wrong Try Again');
+      navigate(`/notFound`);
+    },
   });
 
   if (isLoading) return <h1>Loading...</h1>;

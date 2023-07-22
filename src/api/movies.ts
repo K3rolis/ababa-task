@@ -18,6 +18,14 @@ export const getMovies = async () => {
   return await axios.get(`${API_URL}/movies`).then((res) => res.data);
 };
 
+export const getMoviesAsc = async () => {
+  return await axios.get(`${API_URL}/movies?_sort=title&_order_asc`).then((res) => res.data);
+};
+
+export const getMoviesDesc = async () => {
+  return await axios.get(`${API_URL}/movies?_sort=title&_order_desc`).then((res) => res.data);
+};
+
 export const deleteMovie = async (id: number) => {
   return await axios.delete(`${API_URL}/movies/${id}`);
 };

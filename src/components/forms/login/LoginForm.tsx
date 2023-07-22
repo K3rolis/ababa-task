@@ -26,7 +26,7 @@ const Login = ({ onSubmit, error }: Props) => {
       <Title>Login form</Title>
       <form onSubmit={handleSubmit(onLogin)}>
         <InputField type="text" label="Username" name="username" register={register} required />
-        <InputField type="text" label="password" name="password" register={register} required />
+        <InputField type="password" label="password" name="password" register={register} required />
         {error && <ErrorField>{error}</ErrorField>}
         <AuthRedirect label="Don't have account?" link="register" linkText="Sign up" />
 

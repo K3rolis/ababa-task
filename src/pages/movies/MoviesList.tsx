@@ -1,18 +1,22 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import styles from './MoviesList.module.css';
 import classes from '../../components/buttons/Buttons.module.css';
 import Container from '../../components/container/Container';
-import { deleteMovie, getMovies } from '../../api/movies';
+import { deleteMovie, getMoviesAsc } from '../../api/movies';
 import { useMutation, useQuery } from '@tanstack/react-query';
 import { MovieProps } from '../../props/MoviesProps';
 import MovieCard from '../../components/movieCard/MovieCard';
 import { LinkButton } from '../../components/buttons/Buttons';
 import Title from '../../components/title/Title';
 import { AiOutlineArrowDown, AiOutlineArrowUp } from 'react-icons/ai';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { LoginContext } from '../../contexts/LoginContext';
+import { toast } from 'react-toastify';
 
 const MoviesList = () => {
   const [moviesDesc, setMoviesDesc] = useState<boolean>(false);
+  const { auth } = useContext(LoginContext);
+  const navigate = useNavigate();
 
   const {
     refetch,
@@ -20,21 +24,32 @@ const MoviesList = () => {
     data: movies,
   } = useQuery({
     queryKey: ['movies'],
-    queryFn: getMovies,
+    queryFn: getMoviesAsc,
   });
 
   const deleteMovieMutation = useMutation({
     mutationFn: deleteMovie,
-    onSuccess: () => refetch(),
+    onSuccess: () => {
+      refetch();
+      toast.success('Movie was deleted Successfully!');
+    },
+    onError: () => {
+      toast.error('Something Went Wrong Try Again');
+      navigate(`/notFound`);
+    },
   });
 
   const handleDelete = (id: number) => {
-    deleteMovieMutation.mutate(id);
+    if (auth.isLoggedIn) {
+      deleteMovieMutation.mutate(id);
+    } else {
+      navigate('/*');
+    }
   };
 
   if (isLoading) return <h1>Loading...</h1>;
 
-  const sort = movies.toReversed();
+  const moviesSorted = movies.toReversed();
 
   return (
     <Container width="800px">
@@ -51,14 +66,18 @@ const MoviesList = () => {
           )}
         </div>
 
-        <LinkButton className={`${styles.button} ${classes.outline}`}>
-          <Link to={'/movies/create'}>Create New</Link>
-        </LinkButton>
+        {auth.isLoggedIn && (
+          <LinkButton className={`${styles.button} ${classes.outline}`}>
+            <Link to={'/movies/create'}>Create New</Link>
+          </LinkButton>
+        )}
       </div>
       <div className={styles.moviesWrapper}>
-        {(moviesDesc ? movies : sort).map((movie: MovieProps) => (
-          <MovieCard key={movie.id} props={{ ...movie }} handleDelete={handleDelete} />
-        ))}
+        {movies.length ? (
+          (moviesDesc ? moviesSorted : movies).map((movie: MovieProps) => <MovieCard key={movie.id} props={{ ...movie }} handleDelete={handleDelete} />)
+        ) : (
+          <Title>Results not found</Title>
+        )}
       </div>
     </Container>
   );

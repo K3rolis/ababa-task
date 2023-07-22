@@ -22,7 +22,7 @@ const Navigation = () => {
     });
   };
 
-  const handleSubmit = (e: any) => {
+  const handleSubmit = (e: { preventDefault: () => void }) => {
     e.preventDefault();
     if (search) {
       navigate(`/movies/search/${search}`);
@@ -39,7 +39,7 @@ const Navigation = () => {
           <div className={styles.navbarGap}>
             <form onSubmit={handleSubmit} className={styles.searchBox}>
               <div className={styles.searchContent}>
-                <input type="search" onChange={(e) => setSearch(e.target.value)} className={styles.searchInput} />
+                <input type="search" placeholder="search..." onChange={(e) => setSearch(e.target.value)} className={styles.searchInput} />
                 <button className={styles.searchButton}>
                   <AiOutlineSearch className={styles.searchIcon} />
                 </button>
@@ -47,7 +47,6 @@ const Navigation = () => {
             </form>
           </div>
 
-          {/* <NavLink to={'/'}> Home</NavLink> */}
           <div className={styles.auth}>
             {!auth.isLoggedIn ? (
               <div className={styles.navbarGap}>
@@ -67,8 +66,6 @@ const Navigation = () => {
               </div>
             )}
           </div>
-
-          {/* <GiHamburgerMenu className={styles.hamburger} onClick={() => setIsOpen(!isOpen)} /> */}
 
           <div className={`${styles.hamburgerMenu} ${styles.hamburgerMenuActive}`} onClick={() => setIsOpen(!isOpen)}>
             <GiHamburgerMenu className={styles.hamburger} />

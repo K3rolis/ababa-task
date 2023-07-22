@@ -3,18 +3,23 @@ import MovieForm from '../../components/forms/movie/MovieForm';
 import { useMutation } from '@tanstack/react-query';
 import { createMovie } from '../../api/movies';
 import { MovieProps } from '../../props/MoviesProps';
+import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 const MovieCreate = () => {
+  const navigate = useNavigate();
   const createMovieMutation = useMutation({
     mutationFn: createMovie,
-    onSuccess: (data: any) => {
-      console.log('issisaugojo');
-      //   toast.success('Recipe was created Successfully!');
-      //   navigate(`/recipes/category/${data.data.categoryId}/recipe/${Number(data.data.id)}`);
+    onSuccess: () => {
+      toast.success('Movie was created Successfully!');
+      navigate('/');
     },
-    // onError: () => navigate(`/notFound`),
+    onError: () => {
+      toast.error('Something Went Wrong Try Again');
+      navigate(`/notFound`);
+    },
   });
-  const handleSubmit = (movie: any) => {
+  const handleSubmit = (movie: MovieProps) => {
     createMovieMutation.mutate({
       ...movie,
     });
