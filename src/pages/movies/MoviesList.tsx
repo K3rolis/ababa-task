@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styles from './MoviesList.module.css';
 import classes from '../../components/buttons/Buttons.module.css';
 import Container from '../../components/container/Container';
@@ -12,6 +12,8 @@ import { AiOutlineArrowDown, AiOutlineArrowUp } from 'react-icons/ai';
 import { Link } from 'react-router-dom';
 
 const MoviesList = () => {
+  const [moviesDesc, setMoviesDesc] = useState<boolean>(false);
+
   const {
     refetch,
     isLoading,
@@ -32,6 +34,8 @@ const MoviesList = () => {
 
   if (isLoading) return <h1>Loading...</h1>;
 
+  const sort = movies.toReversed();
+
   return (
     <Container width="800px">
       <Title>Movies</Title>
@@ -40,8 +44,11 @@ const MoviesList = () => {
 
         <div className={styles.sortingBox}>
           <span className={styles.sort}>Sort By Title</span>
-          <AiOutlineArrowDown className={styles.icon} />
-          <AiOutlineArrowUp className={styles.icon} />
+          {moviesDesc ? (
+            <AiOutlineArrowUp className={styles.icon} onClick={() => setMoviesDesc(false)} />
+          ) : (
+            <AiOutlineArrowDown className={styles.icon} onClick={() => setMoviesDesc(true)} />
+          )}
         </div>
 
         <LinkButton className={`${styles.button} ${classes.outline}`}>
@@ -49,7 +56,7 @@ const MoviesList = () => {
         </LinkButton>
       </div>
       <div className={styles.moviesWrapper}>
-        {movies.map((movie: MovieProps) => (
+        {(moviesDesc ? movies : sort).map((movie: MovieProps) => (
           <MovieCard key={movie.id} props={{ ...movie }} handleDelete={handleDelete} />
         ))}
       </div>

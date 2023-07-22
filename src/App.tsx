@@ -7,6 +7,7 @@ import MovieEdit from './pages/movies/MovieEdit';
 import Login from './pages/login/Login';
 import Register from './pages/register/Register';
 import { LoginContext } from './contexts/LoginContext';
+import Search from './pages/search/Search';
 
 function App() {
   const { auth } = useContext(LoginContext);
@@ -19,6 +20,7 @@ function App() {
         <Route path="/" element={<MoviesList />} />
         <Route path="/movies/create" element={<MovieCreate />} />
         <Route path="/movies/edit/:movieId" element={<MovieEdit />} />
+        <Route path="/movies/search/:search" element={<Search />} />
 
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />

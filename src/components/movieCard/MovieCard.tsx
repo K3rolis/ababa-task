@@ -6,7 +6,7 @@ import { AiFillDelete, AiFillEdit, AiFillStar } from 'react-icons/ai';
 
 type Props = {
   props: MovieProps;
-  handleDelete: (id: number) => void;
+  handleDelete?: (id: number) => void;
 };
 const MovieCard = ({ handleDelete, props }: Props) => {
   return (
@@ -32,7 +32,7 @@ const MovieCard = ({ handleDelete, props }: Props) => {
           <AiFillEdit className={styles.icon} />
         </Link>
 
-        <button onClick={() => handleDelete(props.id!)} title="Delete">
+        <button onClick={() => handleDelete!(props.id!)} title="Delete">
           <AiFillDelete className={styles.icon} />
         </button>
       </div>

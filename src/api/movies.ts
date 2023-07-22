@@ -21,3 +21,7 @@ export const getMovies = async () => {
 export const deleteMovie = async (id: number) => {
   return await axios.delete(`${API_URL}/movies/${id}`);
 };
+
+export const getSearchedMovies = async (search: string) => {
+  return await axios.get(`${API_URL}/movies?q=${search}`).then((res) => res.data);
+};
